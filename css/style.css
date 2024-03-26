@@ -367,16 +367,16 @@ a:focus {
   font-size: 14px;
 }
 
-.slider_section .find_form_container .form-control.nice-select {
+.slider_section .find_form_container .form-control.select-parking {
   line-height: 39px;
 }
 
-.slider_section .find_form_container .nice-select ul {
+.slider_section .find_form_container .select-parking ul {
   width: 100%;
   padding: 0;
 }
 
-.slider_section .find_form_container .nice-select::after {
+.slider_section .find_form_container .select-parking::after {
   right: 15px;
   border: none;
   border-top: 5px solid #ccc;
@@ -387,7 +387,7 @@ a:focus {
           transform: rotate(0deg);
 }
 
-.slider_section .find_form_container .nice-select.open::after {
+.slider_section .find_form_container .select-parking.open::after {
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
 }
@@ -925,6 +925,15 @@ a:focus {
   list-style-type: none;
 }
 
+#select-parking {
+  height: 50px !important;
+}
 
+@media (min-width: 450) {
+  .slider_section {
+    text-align: center;
+    justify-content: center;
+  }
+  
+}
 
-/*# sourceMappingURL=style.css.map */

@@ -47,47 +47,46 @@
         <!-- header section strats -->
         <header class="header_section">
           <div class="container">
-            <nav class="navbar navbar-expand-lg custom_nav-container ">
-              <a class="navbar-brand" href="index.html">
-                <span>
-                  Parking System
-                </span>
-              </a>
-    
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class=""> </span>
-              </button>
-    
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                  </li>
-                  <li class="nav-item ">
-                    <a class="nav-link" href="about.html">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pricing.html">Pricing</a>
-                  </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" href="signup.html">Sign Up/Login <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="why.html">Why Us</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="testimonial.html">Our Clients</a>
-                  </li>
-                </ul>
-                <form class="form-inline">
-                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                    <i class="fa fa-search" aria-hidden="true"></i>
+              <nav class="navbar navbar-expand-lg custom_nav-container">
+                  <a class="navbar-brand" href="index.html">
+                    <span> Parking System</span>
+                  </a>
+      
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
                   </button>
-                </form>
-              </div>
-            </nav>
+      
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                              <a class="nav-link" href="index.html">Home</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="about.html">About</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="pricing.html">Pricing</a>
+                          </li>
+                          <li class="nav-item active">
+                              <a class="nav-link" href="signup.html">Sign Up/Login</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="why.html">Why Us</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="testimonial.html">Our Clients</a>
+                          </li>
+                      </ul>
+                      <form class="d-flex">
+                          <button class="btn btn-outline-success nav_search-btn" type="submit">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                          </button>
+                      </form>
+                  </div>
+              </nav>
           </div>
-        </header>
+      </header>
         <!-- end header section -->
       </div>
 
@@ -101,23 +100,23 @@
                     <form action="#" method="post">
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+                            <input name="username" type="text" class="form-control" id="username" placeholder="Enter username" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                            <input name="email" type="email" class="form-control" id="email" placeholder="Enter email" required>
                         </div>
                         <div class="form-group">
                           <label for="phone_number">Phone number</label>
-                          <input type="phone_number" class="form-control" id="phone_number" placeholder="387 61 234 567" required>
+                          <input name="phone_number" type="phone_number" class="form-control" id="phone_number" placeholder="387 61 234 567" required>
                       </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password" required>
+                            <input name="password" type="password" class="form-control" id="password" placeholder="Password" required>
                         </div>
                         <div class="form-group">
                             <label for="confirm_password">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Password" required>
+                            <input name="confirm_password" type="password" class="form-control" id="confirm_password" placeholder="Confirm Password" required>
                         </div>
                         <button type="submit" class="signup_button">SIGN UP</button>
                     </form>
@@ -132,11 +131,11 @@
                     <form action="#" method="post">
                         <div class="form-group">
                             <label for="login_email">Email</label>
-                            <input type="text" class="form-control" id="login_email" placeholder="Enter email" required>
+                            <input name="login_email" type="text" class="form-control" id="login_email" placeholder="Enter email" required>
                         </div>
                         <div class="form-group">
                             <label for="login_password">Password</label>
-                            <input type="password" class="form-control" id="login_password" placeholder="Password" required>
+                            <input name="login_password" type="password" class="form-control" id="login_password" placeholder="Password" required>
                         </div>
                         <button type="submit" class="signup_button">LOG IN</button>
                     </form>
@@ -159,7 +158,7 @@
                   Stay Connected
                 </h4>
                 <form action="">
-                  <input type="text" placeholder="Enter Your Email" />
+                  <input name="Email" type="text" placeholder="Enter Your Email" />
                   <button type="submit">
                     Subscribe
                   </button>
@@ -249,10 +248,10 @@
 
 
     <!-- jQery -->
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-3.7.1.js"></script>
     <!-- popper js -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script> -->
     <!-- nice select -->
     <script src="js/jquery.nice-select.min.js"></script>
     <!-- bootstrap js -->

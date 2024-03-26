@@ -7,9 +7,11 @@ function getYear() {
 
 getYear();
 
-// nice select
+// select2
 $(document).ready(function () {
-    $("select").niceSelect();
+    $("select").select2({
+        width: "resolve"
+    });
 });
 
 
