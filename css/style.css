@@ -908,6 +908,11 @@ a:focus {
   padding: 7px 35px;
 }
 
+.signup_button:hover {
+  background-color: #ef3e00;
+}
+
+
 .dashboard {
   margin-bottom: 10%;
 }
