@@ -1033,3 +1033,11 @@ a:focus {
   justify-content: center;
   align-items: center;
 }
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .custom_row {
+    display: block;
+    padding: 5%;
+  }
+}
