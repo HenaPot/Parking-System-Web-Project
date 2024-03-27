@@ -16,7 +16,7 @@ $(document).ready(function () {
 
 
 // client section owl carousel
-$(".client_owl-carousel").owlCarousel({
+/*$(".client_owl-carousel").owlCarousel({
     loop: true,
     margin: 10,
     dots: false,
@@ -36,4 +36,15 @@ $(".client_owl-carousel").owlCarousel({
             items: 2
         }
     }
-});
+});*/
+
+$(document).ready(function() {
+    // Initialize the carousel
+    $('#carouselExampleCaptions').carousel({
+      interval: 2000, // Change slides every 2 seconds (adjust as needed)
+      pause: 'hover', // Pause on hover
+      wrap: true, // Loop back to the first slide after the last one
+      keyboard: false
+    });
+  });
+

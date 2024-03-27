@@ -11,390 +11,40 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
 
   <title>Parking System</title>
 
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-  
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
   <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"/>
   <!-- select2 from CDN -->
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <!-- font awesome style -->
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+  <link href="assets/css/responsive.css" rel="stylesheet" />
+  <!-- spapp css-->
+  <link href="assets/css/spapp.css" rel="stylesheet"/>
 
 </head>
 
 <body>
+  <main id="spapp" role="main">
+    <section id="slider" data-load="slider.html"></section>
 
-  <div class="hero_area">
-    <div class="bg-box">
-      <img src="images/slider-bg.jpg" alt="">
-    </div>
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container">
-          <nav class="navbar navbar-expand-lg custom_nav-container">
-              <a class="navbar-brand" href="index.html">
-                <span> Parking System</span>
-              </a>
-  
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-  
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item active">
-                          <a class="nav-link" href="index.html">Home</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="about.html">About</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="pricing.html">Pricing</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="signup.html">Sign Up/Login</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="why.html">Why Us</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="testimonial.html">Our Clients</a>
-                      </li>
-                  </ul>
-                  <form class="d-flex">
-                      <button class="btn btn-outline-success nav_search-btn" type="submit">
-                          <i class="fa fa-search" aria-hidden="true"></i>
-                      </button>
-                  </form>
-              </div>
-          </nav>
-      </div>
-  </header>
-  
-    <!-- end header section -->
-
-    <!-- slider section -->
-    <section class="slider_section ">
-      <div class="container">
-        <div class="detail-box col-md-9 mx-auto px-0">
-          <h1>
-            Finding Parking Lots Made Easy
-          </h1>
-          <p style="padding-bottom: 30px;">
-            <b>
-            No more struggle with finding free car parking spots. Reserve your spot now and don't worry about being late ever again!
-            </b>
-          </p>
-        </div>
-        <div class="find_form_container">
-          <form action="#">
-            <div class="form-row justify-content-center">
-              <div class="col-md-4 col-sm-4 col-12">
-                <div class="form-group">
-                  <label for="select-parking">Select Parking</label>
-                  <div class="input-group">
-                    <select id="select-parking" name="select-parking" class="form-control select-parking" style="width: 100%;">
-                      <option class="input-group" value="1" data-display="Highway Parking">Highway Parking</option>
-                      <option  class="input-group" value="2">City Center</option>
-                      <option  class="input-group" value="3">Suburbs</option> 
-                    </select>
-                  </div>
-                </div> 
-              </div> 
-              <div class="col-md-4 col-sm-4 col-12">
-                <div class="form-group">
-                  <label for="name">Your Name</label>
-                  <div class="input-group">
-                    <input id="name" name="name" type="text" class="form-control" placeholder="Hena Potogija" />
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-4 col-12">
-                <div class="form-group">
-                  <label for="mobile">Phone Number</label>
-                  <div class="input-group ">
-                    <input id="mobile" name="mobile" type="text" class="form-control" placeholder="387 61 234 567" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="btn-box">
-              <a href="signup.html">
-                <button type="submit">
-                  <span>
-                    Reserve Your Spot
-                  </span>
-                </button>
-              </a>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-    <!-- end slider section -->
-  </div>
-
-  <!-- about section -->
-
-  <section class="about_section layout_padding">
-    <div class="container  ">
-      <div class="heading_container ">
-        <h2>
-          About Us
-        </h2>
-        <p>
-          We provide a simple and affordable solution to finding a car parking spot! Parking System is dedicated 
-          to finding free car parking spots for you according to your selected location. 
-          Let us do the rest!
-        </p>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 ">
-          <div class="img-box">
-            <img src="images/about-img.jpg" alt="">
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="detail-box">
-            <h3>
-              We Are Here For Help
-            </h3>
-            <p>
-               We are dedicated to making your parking experience convenient and hassle-free. Regardless if you are looking for short-term or
-              long-term car parking solution, we've got you covered! 
-            </p>
-            <p>
-              All you need to do is enter your desired location and you are already halfway there.
-              <b>Sign up today and enjoy your free car parking spot reservation!</b> 
-            </p>
-            </p>
-            <a href="signup.html">
-              Sign Up
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end about section -->
-
-  <!-- why section -->
-
-  <section class="why_section layout_padding-bottom">
-    <div class="container">
-      <div class="col-md-10 px-0">
-        <div class="heading_container">
-          <h2>
-            Why Choose Us
-          </h2>
-          <p>
-            Choose us because we chose your comfort.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-lg-4 mx-auto">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/w1.png" alt="">
-            </div>
-            <div class="detail-box">
-              <h4>
-                No Reservation Fees
-              </h4>
-              <p>
-                Making a reservation is entirely free. You can get your car parking spot (and cancel it) all for free. 
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mx-auto">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/w2.png" alt="">
-            </div>
-            <div class="detail-box">
-              <h4>
-                Pay Onsite
-              </h4>
-              <p>
-                You only pay for what you show up for! You need to pay for the parking. Nothing else.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mx-auto">
-          <div class="box ">
-            <div class="img-box">
-              <img src="images/w3.png" alt="">
-            </div>
-            <div class="detail-box">
-              <h4>
-                Simple Booking Process
-              </h4>
-              <p>
-                The only requirement for stress-free parking is 
-                that you complete a very simple registraton process.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end why section -->
-
-  <!-- pricing section -->
-
-  <section class="pricing_section layout_padding">
-    <div class="bg-box">
-      <img src="images/pricing-bg.jpg" alt="">
-    </div>
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Our Pricing
-        </h2>
-      </div>
-      <div class="col-xl-10 px-0 mx-auto">
-        <div class="row">
-          <div class="col-md-6 col-lg-4 mx-auto">
-            <div class="box">
-              <h4 class="price">
-                $10
-              </h4>
-              <h5 class="name">
-                Basic
-              </h5>
-              <p>
-                May your parking be hassle-free! Includes in-advance parking slot scheduling up until a week and the free-cancalation time period of 2 days from the moment of registration. In case you don't finish your payment at a nearby Parking System, the reservation will automatically
-                cancel once the free-cancelation period is over.
-              </p>
-              <a href="index.html">
-                Make a Reservation<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mx-auto">
-            <div class="box box-center">
-              <h4 class="price">
-                $30
-              </h4>
-              <h5 class="name">
-                Premium
-              </h5>
-              <p>
-                Enjoy ultimate comfort of the Parking System! Includes parking slot scheduling up until 3 weeks and without the need to pay in advance. You pay entirely onsite when you arrive to your chosen
-                Parking System slot.
-              </p>
-              <a href="index.html">
-                Make a Reservation <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mx-auto">
-            <div class="box">
-              <h4 class="price">
-                $20
-              </h4>
-              <h5 class="name">
-                Standard
-              </h5>
-              <p>
-                Enjoy your parking hassle-free! Includes in-advance parking slot scheduling up until 2 weeks and the free-cancalation time period of 5 days from the moment of registration. In case you don't finish your payment at a nearby Parking System, the reservation will automatically
-                cancel once the free-cancelation period is over.              </p>
-              <a href="index.html">
-                Make a Reservation <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end pricing section -->
-
-
-  <!-- client section -->
-
-  <section class="client_section layout_padding">
-    <div class="container">
-      <div class="heading_container col">
-        <h2>
-          What Our Clients Say
-        </h2>
-      </div>
-      <div class="client_container">
-        <div class="carousel-wrap ">
-          <div class="owl-carousel client_owl-carousel">
-            <div class="item">
-              <div class="box">
-                <div class="detail-box">
-                  <p>
-                    I've had excelent experience with Parking System! It is easy to use in a rush and straight to the point. Furthermore, the Parking System's parking lots are very spacious and easy to navigate.
-                  </p>
-                </div>
-                <div class="client_id">
-                  <div class="img-box">
-                    <img src="images/c1.jpg" alt="" class="img-1">
-                  </div>
-                  <div class="name">
-                    <h6>
-                      Lisa Adams
-                    </h6>
-                    <p>
-                      Premium
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="box">
-                <div class="detail-box">
-                  <p>
-                    The prices are reasonables for the service and I've never had smoother reservation experience before! Using Parking System is truly hassle-free.
-                  </p>
-                </div>
-                <div class="client_id">
-                  <div class="img-box">
-                    <img src="images/c2.jpg" alt="" class="img-1">
-                  </div>
-                  <div class="name">
-                    <h6>
-                      Michel Trout
-                    </h6>
-                    <p>
-                      Standard
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end client section -->
+    <section id="about" data-load="about.html" class="about_section"></section>
+    <section id="why" data-load="why.html" class="why_section layout_padding-bottom"></section>
+    <section id="signup" data-load="signup.html"></section>
+    <section id="pricing" data-load="pricing.html" class="pricing_section"></section>
+    <section id="testimonial" data-load="testimonial.html" class="client_section"></section>
+  </main>
 
   <!-- info section -->
   <section class="info_section ">
@@ -484,6 +134,7 @@
     </div>
   </section>
   <!-- end info_section -->
+
   <!-- footer section -->
   <footer class="footer_section">
     <div class="container">
@@ -493,23 +144,37 @@
       </p>
     </div>
   </footer>
-  <!-- footer section -->
+  <!-- end footer section -->
 
   <!-- jQery -->
-  <script src="js/jquery-3.7.1.js"></script>
-  <!-- popper js -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
-  </script> -->
-
+  <script src="assets/js/jquery-3.7.1.js"></script>
   <!-- select2 from CDN -->
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <!-- bootstrap js -->
-  <script src="js/bootstrap.js"></script>
+  <script src="assets/js/bootstrap.js"></script>
+  <!--spapp js-->
+  <script src="assets/js/jquery.spapp.min.js"> </script>
   <!-- owl slider -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <!-- custom js -->
-  <script src="js/custom.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  <script>
+    var app = $.spapp({
+    defaultView  : "#slider",
+    templateDir  : "./views/",
+    //pageNotFound : "error_404"
+  });
+
+    /*app.route({
+      view : "view_1",
+      load : "view_xxx.html",
+      onCreate: function() {  },
+      onReady: function() {  }
+    });*/
+
+    app.run();
+  </script>
 
 </body>
 

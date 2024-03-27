@@ -85,6 +85,43 @@ a:focus {
           flex-direction: column;
 }
 
+.heading_navbar {
+  .hero_area {
+    position: relative;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.special_container {
+  background-image: url("../images/slider-bg.jpg") ;
+  background-size: cover; /* Ensure the image covers the entire navbar */
+  background-position: center; /* Center the background image */
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  width: 100%;
+  position: relative;
+}
+
+.special_container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(21, 82, 99, 0.65)), to(rgba(21, 82, 99, 0.55)));
+  background: linear-gradient(to right, rgba(21, 82, 99, 0.65), rgba(21, 82, 99, 0.55));
+  background-size: cover; /* Ensure the image covers the entire navbar */
+
+}
+
 .bg-box {
   position: absolute;
   top: 0;
@@ -112,6 +149,36 @@ a:focus {
   background: -webkit-gradient(linear, left top, right top, from(rgba(21, 82, 99, 0.65)), to(rgba(21, 82, 99, 0.55)));
   background: linear-gradient(to right, rgba(21, 82, 99, 0.65), rgba(21, 82, 99, 0.55));
 }
+
+ #about .bg-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 9%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+ #about .bg-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#about .bg-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(21, 82, 99, 0.65)), to(rgba(21, 82, 99, 0.55)));
+  background: linear-gradient(to right, rgba(21, 82, 99, 0.65), rgba(21, 82, 99, 0.55));
+}
+
+
 
 .sub_page .hero_area {
   min-height: auto;
@@ -669,7 +736,7 @@ a:focus {
   margin-bottom: 25px;
 }
 
-.client_section .box {
+.client_section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -677,7 +744,7 @@ a:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 15px;
+  justify-content: center;
 }
 
 .client_section .box .detail-box {
@@ -939,6 +1006,30 @@ a:focus {
     text-align: center;
     justify-content: center;
   }
-  
 }
 
+#about h2 {
+  padding-top: 5%;
+}
+
+.client_container {
+  position: relative;
+}
+
+.client_section .carousel-wrapper {
+    position: absolute;
+    height: 50%;
+}
+
+.center_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom_row {
+  display: flex;
+  padding: 5%;
+  justify-content: center;
+  align-items: center;
+}
