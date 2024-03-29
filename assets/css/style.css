@@ -973,15 +973,23 @@ a:focus {
   color: #ffffff;
   border: none;
   padding: 7px 35px;
+  margin-inline-start: 37%;
 }
 
 .signup_button:hover {
   background-color: #ef3e00;
 }
 
+.dashboard-container {
+  background-color: white; 
+  padding-top: 2%;
+   margin-bottom: 2%;
+    width: 100%; 
+    opacity: 1;
+}
 
 .dashboard {
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
 .dashboard h1{
@@ -1040,4 +1048,45 @@ a:focus {
     display: block;
     padding: 5%;
   }
+}
+
+.signup_button {
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: #ff6f3c;
+  color: #ffffff;
+  border-radius: 0px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: none;
+  margin-top: 15px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust as needed */
+}
+
+.option_control {
+  height: 50px;
+  outline: none;
+  border: none;
+  position: relative;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #f7f8f3;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%; /* Ensure the column has a defined height */
+}
+
+.center-button {
+  align-items: center;
+  margin-inline-start: 37%;
 }

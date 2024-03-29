@@ -31,8 +31,22 @@
   <link href="assets/css/responsive.css" rel="stylesheet" />
   <!-- spapp css-->
   <link href="assets/css/spapp.css" rel="stylesheet"/>
+  
   <!-- select2 from CDN -->
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <!-- Datatables css -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
+  
+   <!-- jQery -->
+   <script src="assets/js/jquery-3.7.1.js"></script>
+   <!-- bootstrap js -->
+   <script src="assets/js/bootstrap.js"></script>
+   <!-- Datatables js-->
+   <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+   <!-- select2 from CDN -->
+   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+   <!--spapp js-->
+   <script src="assets/js/jquery.spapp.min.js"> </script>
 
 </head>
 
@@ -45,6 +59,9 @@
     <section id="signup" data-load="signup.html"></section>
     <section id="pricing" data-load="pricing.html" class="pricing_section"></section>
     <section id="testimonial" data-load="testimonial.html" class="client_section"></section>
+    <section id ="dashboard" data-load="dashboard.html"></section>
+    <section id="profile" data-load="profile.html"></sectionid>
+      
   </main>
 
   <!-- info section -->
@@ -147,18 +164,7 @@
   </footer>
   <!-- end footer section -->
 
-  <!-- jQery -->
-  <script src="assets/js/jquery-3.7.1.js"></script>
-  <!-- bootstrap js -->
-  <script src="assets/js/bootstrap.js"></script>
-  <!--spapp js-->
-  <script src="assets/js/jquery.spapp.min.js"> </script>
-  <!-- owl slider 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
-  <!-- select2 from CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <!-- custom js -->
-  <script src="assets/js/custom.js"></script>
+ 
 
   <script>
     var app = $.spapp({
@@ -176,6 +182,8 @@
 
     app.run();
   </script>
+  <script src="assets/js/custom.js"></script>
+
 
 </body>
 

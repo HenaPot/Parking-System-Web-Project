@@ -7,12 +7,8 @@ function getYear() {
 
 getYear();
 
-// select2
-$(document).ready(function () {
-    $("select").select2({
-        width: "resolve"
-    });
-});
+
+
 
 
 // client section owl carousel
