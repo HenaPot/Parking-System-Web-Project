@@ -7,33 +7,6 @@ function getYear() {
 
 getYear();
 
-
-
-
-
-// client section owl carousel
-/*$(".client_owl-carousel").owlCarousel({
-    loop: true,
-    margin: 10,
-    dots: false,
-    nav: true,
-    navText: [],
-    autoplay: true,
-    autoplayHoverPause: true,
-    navText: [
-        '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-        '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-    ],
-    responsive: {
-        0: {
-            items: 1
-        },
-        992: {
-            items: 2
-        }
-    }
-});*/
-
 $(document).ready(function() {
     // Initialize the carousel
     $('#carouselExampleCaptions').carousel({
@@ -43,4 +16,34 @@ $(document).ready(function() {
       keyboard: false
     });
   });
+
+$(document).ready(function() {
+    // Use jQuery AJAX to fetch JSON data from the file - SLIDER
+    $.ajax({
+        url: 'json/parking_lots.json',
+        dataType: 'json',
+        success: function(data) {
+            //console.log('you are here !');
+            // Iterate over each item in the JSON array
+            $.each(data, function(index, item) {
+                // Create option element with attributes
+                var option = $('<option>', {
+                    value: item.value,
+                    text: item.text,
+                    // Add additional attributes here
+                    class: 'input-group', // Example: Add a class
+                    'data-display': item.text, // Example: Add a data attribute
+                });
+                
+                // Append the option to the select element
+                $('#select-parking').append(option);
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error('Error loading JSON data:', error);
+        }
+    });
+
+});
+
 

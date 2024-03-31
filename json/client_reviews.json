@@ -1,0 +1,18 @@
+[
+    {
+        "src": "assets/images/woman1.jpg",
+        "alt": "First slide",
+        "caption": {
+            "title": "Anna Nielson",
+            "content": "I've had excelent experience with Parking System! It is easy to use in a rush and straight to the point. Their parking lots are very spacious and easy to navigate."
+        }
+    },
+    {
+        "src": "assets/images/man1.jpg",
+        "alt": "Second slide",
+        "caption": {
+            "title": "Frank Garcia",
+            "content": "The prices are reasonables for the service and I've never had smoother reservation experience before! Using Parking System is truly hassle-free."
+        }
+    }
+]
