@@ -65,7 +65,7 @@
               <h4>
                 Stay Connected
               </h4>
-              <form action="">
+              <form action="" id="subscribe-form">
                 <input name="subscribe" id="subscribe" type="text" placeholder="Enter Your Email" />
                 <button type="submit">
                   Subscribe
@@ -188,6 +188,53 @@
     app.run();
   </script>
   <script src="assets/js/custom.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $("#subscribe-form").validate({
+          rules: {
+               subscribe: {
+                   required: true,
+                   email: true
+             }
+          },
+          messages: {
+            subscribe: {
+                  required: 'Please enter your email',
+                  email: 'Please enter a valid email'
+            }
+          },
+          submitHandler: function(form) {
+            var formDataArray = $(form).serializeArray();
+            // Convert the array of objects into a JSON object
+            var formDataJson = {};
+            formDataArray.forEach(function(item) {
+                formDataJson[item.name] = item.value;
+            });
+
+            console.log(formDataJson);
+            localStorage.setItem('contact', JSON.stringify(formDataJson));
+
+            $.ajax({
+                  url: 'json/send_notifications.json',
+                  type: 'POST',
+                  data: formDataJson,
+                  success: function() {
+                      //console.log("success3");
+                      //window.location.href= 'index.html#dashboard'
+                      localStorage.setItem('contact', JSON.stringify(formDataJson));
+                  },
+                  error: function(xhr, status, error) {
+                      console.error('Error posting form data:', error);
+                      alert('An error occurred. Please try again later.');
+                  }
+
+              });
+
+          }
+      });
+    }) 
+  </script>
 
 
 

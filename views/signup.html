@@ -50,7 +50,7 @@
                     
                         <h1 style="text-align: center;">SIGN UP</h1>
                     
-                    <form action="index.html#dashboard" method="post">
+                    <form action="index.html#dashboard" method="post" id="signup-form">
                         <div class="form-group">
                             <label for="username">Username</label>
                             <input name="username" type="text" class="form-control" id="username" placeholder="Enter username" autocomplete="username" required>
@@ -60,8 +60,8 @@
                             <input name="email" type="email" class="form-control" id="email" placeholder="Enter email" autocomplete="email" required>
                         </div>
                         <div class="form-group">
-                          <label for="phone_number">Phone number</label>
-                          <input name="phone_number" type="phone_number" class="form-control" id="phone_number" placeholder="387 61 234 567" required>
+                          <label for="mobile">Phone number</label>
+                          <input name="mobile" type="mobile" class="form-control" id="mobile" placeholder="387 61 234 567" required>
                       </div class = "btn-box">
                         <div class="form-group">
                             <label for="password">Password</label>
@@ -153,6 +153,102 @@
                         // If no matching user is found, display an error message
                         if (!found) {
                             console.log("no such user in json file.");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error loading JSON data:', error);
+                    }
+                });
+    
+                // Reset the form 
+                form.reset();
+            }
+        });
+
+        // Initialize jQuery Validation plugin
+        $('#signup-form').validate({
+            rules: {
+                username: {
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone_number: {
+                    required: true,
+                    minlength: 9
+                },
+                password: {
+                    required: true,
+                    minlength: 8
+                },
+                confirm_password: {
+                    required: true,
+                    equalTo: '#password'
+                }
+            },
+            messages: {
+                username: 'Please enter your username',
+                email: {
+                    required: 'Please enter your email',
+                    email: 'Please enter a valid email address'
+                },
+                password: {
+                    required: 'Please enter your password',
+                    minlength: 'Password must be at least 8 characters long'
+                },
+                confirm_password: {
+                    required: 'Please enter your password',
+                    equalTo: 'Passwords do not match'
+                }
+            },
+            submitHandler: function(form) {
+                var formDataArray = $(form).serializeArray();
+
+                // Convert the array of objects into a JSON object
+                var formDataJson = {};
+                formDataArray.forEach(function(item) {
+                    formDataJson[item.name] = item.value;
+                });
+                var formEmail = $('#email').val().trim();
+                
+                // Use jQuery AJAX to fetch JSON data from the file
+                $.ajax({
+                    url: 'json/profiles.json', 
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        var userExists = false;
+                        $.each(data, function(index, item) {
+                            // Check if the current item's email exists in json
+                            if (item.email === formEmail) {
+                                console.log("success2");
+                                userExists = true;
+                                return false; //exiting loop
+                            }
+                        });
+    
+                        // If no matching user is found, display an error message
+                        if (userExists) {
+                            alert("User with the same email already exists!");
+                        } else {
+                            // proceed with adding to json file
+                            $.ajax({
+                                url: 'json/profiles.json',
+                                type: 'POST',
+                                data: formDataJson,
+                                success: function() {
+                                    //console.log("success3");
+                                    window.location.href= 'index.html#profile'
+                                    localStorage.setItem('user', JSON.stringify(formDataJson));
+                                },
+                                error: function(xhr, status, error) {
+                                    console.error('Error posting form data:', error);
+                                    alert('An error occurred. Please try again later.');
+                                }
+
+                            });
                         }
                     },
                     error: function(xhr, status, error) {

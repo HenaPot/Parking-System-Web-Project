@@ -4,7 +4,7 @@
         "password": "jdhbg7tr8372ds!$A",
         "email": "test1@gmail.com",
         "mobile": "387 01 2334 567",
-        "lifetime_reservations": 1,
+        "lifetime_reservations": 4,
         "active_reservations": 1
     },
     {
@@ -12,15 +12,15 @@
         "password": "jdhbg7tr8372ds!$",
         "email": "test2@gmail.com",
         "mobile": "101",
-        "lifetime_reservations": 2,
-        "active_reservations": 1
+        "lifetime_reservations": 0,
+        "active_reservations": 0
     },
     {
         "username": "User3",
         "password": "12345678",
         "email": "test3@gmail.com",
         "mobile": "090 327 834",
-        "lifetime_reservations": 3,
+        "lifetime_reservations": 1,
         "active_reservations": 1
     }
 ]
