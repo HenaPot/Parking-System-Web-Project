@@ -27,7 +27,7 @@
                             <a class="nav-link" href="#dashboard">Dashboard</a>
                           </li>
                           <li class="nav-item active">
-                              <a class="nav-link" href="#index">Logout</a>
+                              <a id="logout-button" class="nav-link" href="index.html">Logout</a>
                           </li>
                           <li class="nav-item">
                               <a class="nav-link" href="#why">Why Us</a>
@@ -56,7 +56,8 @@
                       </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row" id="user-info">
+                      <!-- 
                       <div class="col-md-4">
                         <ul>
                           <li style="font-size: 1.2em;"><strong>Your Username:</strong> Hena Potogija</li>
@@ -75,10 +76,58 @@
                           <li style="font-size: 1.2em;"><strong>Lifetime Reservations:</strong> 1</li>
                           <li style="font-size: 1.2em;"><strong>Active Reservations:</strong> 1</li>
                         </ul>
-                      </div>
+                      </div> -->
                   </div>
                 </div>           
           </section>
       </div>
 
     <!-- Profile END-->
+
+
+    <script>
+      $(document).ready(function() {
+    // Retrieve user information from local storage
+    var userInfo = JSON.parse(localStorage.getItem('user'));
+
+    // Check if user information exists in local storage
+    if (userInfo) {
+        // Create HTML structure for displaying user information
+        var userInfoHtml = `
+            <div class="col-md-4">
+                <ul>
+                    <li style="font-size: 1.2em;"><strong>Your Username:</strong> ${userInfo.username}</li>
+                    <li style="font-size: 1.2em;"><strong>Your Password:</strong> ${userInfo.password}</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <li style="font-size: 1.2em;"><strong>Your Email:</strong> ${userInfo.email}</li>
+                    <li style="font-size: 1.2em;"><strong>Phone Number:</strong> ${userInfo.mobile}</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <li style="font-size: 1.2em;"><strong>Lifetime Reservations:</strong> ${userInfo.lifetime_reservations}</li>
+                    <li style="font-size: 1.2em;"><strong>Active Reservations:</strong> ${userInfo.active_reservations}</li>
+                </ul>
+            </div>
+        `;
+        
+        // Append user information HTML to the container
+        $('#user-info').html(userInfoHtml);
+
+        $('#logout-button').click(function() {
+        // Clear localStorage
+        localStorage.clear();
+        // Redirect the user to the logout page
+        window.location.href = 'logout.html'; // Change 'logout.html' to the actual logout page URL
+}); 
+
+    } else {
+        // Display a message if user information is not found in local storage
+        $('#user-info').html('<p>No user information found in local storage.</p>');
+    }
+});
+
+    </script>

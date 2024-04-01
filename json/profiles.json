@@ -1,0 +1,26 @@
+[
+    {
+        "username": "Hena Potogija",
+        "password": "jdhbg7tr8372ds!$A",
+        "email": "test1@gmail.com",
+        "mobile": "387 01 2334 567",
+        "lifetime_reservations": 1,
+        "active_reservations": 1
+    },
+    {
+        "username": "Test User",
+        "password": "jdhbg7tr8372ds!$",
+        "email": "test2@gmail.com",
+        "mobile": "101",
+        "lifetime_reservations": 2,
+        "active_reservations": 1
+    },
+    {
+        "username": "User3",
+        "password": "12345678",
+        "email": "test3@gmail.com",
+        "mobile": "090 327 834",
+        "lifetime_reservations": 3,
+        "active_reservations": 1
+    }
+]

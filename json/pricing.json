@@ -1,0 +1,20 @@
+[
+    {
+        "value": 1, 
+        "text": "Premium", 
+        "price": 30,
+        "description": "Enjoy ultimate comfort of the Parking System! Includes highest priority for our services: best equipped garage we can find, closest to your chosen location and you have a priority over clients with other pricing packages."
+    },
+    {
+        "value": 2, 
+        "text": "Standard",
+         "price": 20,
+         "description": "Enjoy your parking hassle-free! Includes best-effort service for finding a parking slot as close to your location as possible. All options when it comes to garages are open."
+    },
+    {
+        "value": 3, 
+        "text": "Basic", 
+        "price": 10,
+        "description": "May your parking be hassle-free! Includes a guaranteed parking slot at one of our locations."
+    }
+]

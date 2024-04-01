@@ -53,11 +53,11 @@
                     <form action="index.html#dashboard" method="post">
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input name="username" type="text" class="form-control" id="username" placeholder="Enter username" required>
+                            <input name="username" type="text" class="form-control" id="username" placeholder="Enter username" autocomplete="username" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email address</label>
-                            <input name="email" type="email" class="form-control" id="email" placeholder="Enter email" required>
+                            <input name="email" type="email" class="form-control" id="email" placeholder="Enter email" autocomplete="email" required>
                         </div>
                         <div class="form-group">
                           <label for="phone_number">Phone number</label>
@@ -81,7 +81,7 @@
                     <div class="heading_container heading_center">
                         <h1 style="text-align: center;">LOG IN</h1>
                     </div>
-                    <form action="index.html#dashboard" method="post">
+                    <form action="index.html#dashboard" method="post" id="login-form">
                         <div class="form-group">
                             <label for="login_email">Email</label>
                             <input name="login_email" type="text" class="form-control" id="login_email" placeholder="Enter email" required>
@@ -98,3 +98,71 @@
     </div>
 
     <!-- end about section -->
+
+
+ <script>
+     $(document).ready(function() {
+        // Initialize jQuery Validation plugin
+        $('#login-form').validate({
+            rules: {
+                login_email: {
+                    required: true,
+                    email: true
+                },
+                login_password: {
+                    required: true,
+                    minlength: 8
+                }
+            },
+            messages: {
+                login_email: {
+                    required: 'Please enter your email',
+                    email: 'Please enter a valid email address'
+                },
+                login_password: {
+                    required: 'Please enter your password',
+                    minlength: 'Password must be at least 8 characters long'
+                }
+            },
+            submitHandler: function(form) {
+                var enteredEmail = $('#login_email').val().trim();
+                var enteredPassword = $('#login_password').val().trim();
+                //console.log(enteredEmail);
+                //console.log(enteredPassword);
+    
+                // Use jQuery AJAX to fetch JSON data from the file
+                $.ajax({
+                    url: 'json/profiles.json', 
+                    dataType: 'json',
+                    success: function(data) {
+                        //console.log("success");
+                        var found = false; // Flag to track if a matching user is found
+                        // Iterate over each item in the JSON array
+                        $.each(data, function(index, item) {
+                            // Check if the current item's email and password match the entered credentials
+                            if (item.email === enteredEmail && item.password === enteredPassword) {
+                                // Store user data in local storage
+                                localStorage.setItem('user', JSON.stringify(item));
+                                // Redirect to the profile page
+                                window.location.href = 'index.html#profile';
+                                found = true; // Set the flag to true since a matching user is found
+                                return false; // Exit the loop since we found a matching user
+                            }
+                        });
+    
+                        // If no matching user is found, display an error message
+                        if (!found) {
+                            console.log("no such user in json file.");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error loading JSON data:', error);
+                    }
+                });
+    
+                // Reset the form 
+                form.reset();
+            }
+        });
+    });
+ </script> 
