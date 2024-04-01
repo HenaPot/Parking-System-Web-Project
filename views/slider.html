@@ -62,16 +62,16 @@
           </p>
         </div>
         <div class="find_form_container">
-          <form action="#">
+          <form action="#" id="main-form">
             <div class="form-row justify-content-center">
               <div class="col-md-3 col-sm-3 col-12">
                 <div class="form-group">
                   <label for="select-parking">Select Parking</label>
                   <div class="input-group">
                     <select id="select-parking" name="select-parking" class="form-control select-parking form-select" style="width: 100%;">
-                      <!--  <option class="input-group" value="1" data-display="Highway Parking">Highway Parking</option>
-                      <option  class="input-group" value="2">City Center</option>
-                      <option  class="input-group" value="3">Suburbs</option> -->
+                       <option class="input-group" value="Highway Parking" data-display="Highway Parking">Highway Parking</option>
+                      <option  class="input-group" value="City Center">City Center</option>
+                      <option  class="input-group" value="Suburbs">Suburbs</option> 
                     </select>
                   </div>
                 </div> 
@@ -86,9 +86,9 @@
               </div>
               <div class="col-md-3 col-sm-3 col-12">
                 <div class="form-group">
-                  <label for="mobile">Phone Number</label>
+                  <label for="phone_number">Phone Number</label>
                   <div class="input-group ">
-                    <input id="mobile" name="mobile" type="text" class="form-control" placeholder="387 61 234 567" />
+                    <input id="phone_number" name="phone_number" type="text" class="form-control" placeholder="387 61 234 567" />
                   </div>
                 </div>
               </div>
@@ -96,10 +96,10 @@
                 <div class="form-group">
                   <label for="select-pricing">Select Pricing</label>
                   <div class="input-group">
-                    <select id="select-pricing" name="select-pricing" class="form-control select-parking form-select" style="width: 100%;">
-                      <!--  <option class="input-group" value="1" data-display="Highway Parking">Highway Parking</option>
-                      <option  class="input-group" value="2">City Center</option>
-                      <option  class="input-group" value="3">Suburbs</option> -->
+                    <select id="select-pricing" name="select-pricing" class="form-control select-parking form-select" style="width: 100%;" >
+                      <option class="input-group" value="Premium" data-display="Highway Parking">Premium</option>
+                      <option  class="input-group" value="Premium">Standard</option>
+                      <option  class="input-group" value="Premium">Basic</option>
                     </select>
                   </div>
                 </div> 
@@ -128,3 +128,68 @@ $(document).ready(function () {
         width: "resolve"
     });
 }); </script>
+
+<script>
+  $(document).ready(function() {
+    $("#main-form").validate({
+        rules: {
+             "select-parking": {
+                 required: true
+           },
+           name: {
+                 required: true
+           },
+           phone_number: {
+                 required: true
+           },
+           "select-pricing": {
+                 required: true
+           }
+        }, 
+        messages: {
+          "select-parking": {
+                required: 'Please select a parking option'
+          },
+          name: {
+                required: 'Please enter the reservation name'
+          },
+          phone_number: {
+                required: 'Please enter your phone number'
+          },
+          "select-pricing": {
+                required: 'Please select a pricing option'
+          }
+        },
+        errorPlacement: function(error, element) {
+            // Display error message in place of placeholder
+            error.insertAfter(element);
+        },
+        submitHandler: function(form) {
+          var formDataArray = $(form).serializeArray();
+          // Convert the array of objects into a JSON object
+          var formDataJson = {};
+          formDataArray.forEach(function(item) {
+              formDataJson[item.name] = item.value;
+          });
+
+           $.ajax({
+               url: 'json/reservations.json',
+               type: 'POST',
+              data: formDataJson,
+               success: function(response) {
+                   // Handle success response
+                   console.log(formDataJson);
+                   localStorage.setItem('reservation', JSON.stringify(formDataJson));
+                   window.location.href = 'index.html#signup';
+
+               },
+               error: function(xhr, status, error) {
+                   console.error('Error posting form data:', error);
+                   alert('An error occurred. Please try again later.');
+               }
+           });
+
+        }
+    });
+  }) 
+</script>

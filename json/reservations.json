@@ -40,14 +40,25 @@
         "pricing": "Premium",
         "phone": "064 454 897",
         "name": "Hena Potogija",
-        "parking-lot": "Highway Parking",
+        "parking_lot": "Highway Parking",
         "address": "Francuske revolucije bb",
         "garage": "A",
-        "slot-number": "A88"
+        "slot_number": "A88"
     },
     {
         "date": "22.03.2024",
         "status": "inactive",
+        "pricing": "Premium",
+        "phone": "071 254 997",
+        "name": "User3",
+        "parking-lot": "Suburbs",
+        "address": "Francuske revolucije bb",
+        "garage": "B",
+        "slot-number": "B33"
+    },
+    {
+        "date": "22.03.2024",
+        "status": "active",
         "pricing": "Premium",
         "phone": "071 254 997",
         "name": "User3",

@@ -17,6 +17,11 @@ $(document).ready(function() {
     });
   });
 
+
+
+
+
+  /*
 $(document).ready(function() {
     // Use jQuery AJAX to fetch JSON data from the file - SLIDER PARKING LOT
     $.ajax({
@@ -73,7 +78,7 @@ $(document).ready(function() {
         }
     });
 
-});
+}); */
 
 
 

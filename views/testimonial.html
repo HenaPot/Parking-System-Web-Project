@@ -115,7 +115,7 @@
           <h3>Leave Us A Review</h3>
           <textarea id="review" name="review" class="form-control" rows="5" placeholder="Write your review here"></textarea>
           <!-- You can adjust the number of rows as needed -->
-          <button type="submit" style="margin-top: 20px;" class="signup_button button">Submit</button>
+          <button id="review-button" type="submit" style="margin-top: 20px;" class="signup_button button">Submit</button>
       </div>
   </div>
   </section>
@@ -126,7 +126,7 @@
     // AJAX for fetching client reviews, making elements for bootstrap carousel
     $(document).ready(function () {
       $.ajax({
-        url: 'json/client_reviews.json', // Replace 'carousel-data.json' with the actual path to your JSON file
+        url: 'json/client_reviews.json', 
         dataType: 'json',
         success: function(data) {
             // Iterate over each item in the JSON array
@@ -175,3 +175,19 @@
     });
     })
   </script>
+
+<script>
+  $(document).ready(function () {
+      $('#review-button').click(function () {
+          // Get the review text
+          var reviewText = $('#review').val();
+
+          // Store the review text in local storage
+          localStorage.setItem('review', reviewText);
+
+          // Prevent the default form submission behavior
+          //return false;
+      });
+  });
+</script>
+
