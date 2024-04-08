@@ -1,0 +1,236 @@
+
+    
+    
+    <div class="hero_area">
+        <div class="bg-box">
+          <img src="assets/images/slider-bg.jpg" alt="">
+        </div>
+        <!-- header section strats -->
+        <header class="header_section special_container">
+          <div class="container">
+              <nav class="navbar navbar-expand-lg custom_nav-container">
+                  <a class="navbar-brand" href="index.html">
+                    <span> Parking System</span>
+                  </a>
+      
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+      
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                              <a class="nav-link" href="index.html">Home</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#about">About</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#pricing">Pricing</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#profile">Profile</a>
+                          </li>
+                          <li class="nav-item active">
+                            <a id="logout" class="nav-link" href="index.html">Logout</a>
+                        </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#why">Why Us</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#testimonial">Our Clients</a>
+                          </li>
+                      </ul>
+                      <form class="d-flex">
+                          <button class="btn btn-outline-success nav_search-btn" type="submit">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                          </button>
+                      </form>
+                  </div>
+              </nav>
+          </div>
+      </header>
+        <!-- end header section -->
+
+    <!-- HERE IS THE DASHBOARD-->
+      <div class="bg-box">
+        <img src="assets/images/pricing-bg.jpg" alt="">
+      </div>
+
+      <div class="container dashboard" >
+        <h1> <b>Dashboard</b></h1>
+          <section class="container dashboard-container">
+            <div class="table-responsive">
+                <h2 class="dashboard">Active Reservations</h2>
+                <table class="table table-bordered table-info" id="datatable1">
+                  <thead>
+                    <tr>
+                      <!--<th scope="col">#</th> -->
+                      <th scope="col">Date</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Pricing</th>
+                      <th scope="col">Phone</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Parking Lot</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Garage</th>
+                      <th scope="col">Slot Number</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- 
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>21.03.2024</td>
+                      <td>active</td>
+                      <td>Basic</td>
+                      <td>061 234 567</td>
+                      <td>Hena Potogija</td>
+                      <td>City Center</td>
+                      <td>Francuske revolucije bb</td>
+                      <td>A</td>
+                      <td>A45</td>
+                    </tr> -->
+                  </tbody>
+                </table>           
+            </div>
+          </section>
+
+          <section class="container dashboard-container">
+            <div class="">
+                <div class=" table-responsive">
+                  <h2 class="dashboard">Reservation History</h2>
+                  <table class="table table-bordered table-secondary" id="datatable2">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Pricing</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Parking Lot</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Garage</th>
+                        <th scope="col">Slot Number</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>21.03.2024</td>
+                        <td>inactive</td>
+                        <td>Premium</td>
+                        <td>061 234 567</td>
+                        <td>Hena Potogija</td>
+                        <td>City Center</td>
+                        <td>Francuske revolucije bb</td>
+                        <td>A</td>
+                        <td>A45</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>15.03.2024</td>
+                        <td>inactive</td>
+                        <td>Standard</td>
+                        <td>061 234 567</td>
+                        <td>Dundo Dundic</td>
+                        <td>City Center</td>
+                        <td>Francuske revolucije bb</td>
+                        <td>B</td>
+                        <td>B45</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>11.02.2023</td>
+                        <td>inactive</td>
+                        <td>Basic</td>
+                        <td>063 734 967</td>
+                        <td>Hena Potogija</td>
+                        <td>City Center</td>
+                        <td>Ulica Trg Cvjetova</td>
+                        <td>C</td>
+                        <td>C45</td>
+                      </tr>
+                    </tbody>
+                  </table>           
+              </div>
+            </div>
+          </section>
+        </div>
+
+    <!-- DASHBOARD END-->
+
+<script>
+    $(document).ready(function() {
+    // Retrieve user data from local storage
+    var user = JSON.parse(localStorage.getItem('user'));
+    
+    if (user) {
+        // Fetch JSON data using AJAX
+        $.ajax({
+            url: 'json/reservations.json',
+            dataType: 'json',
+            success: function(data) {
+                // Iterate over the JSON data
+                $.each(data, function(index, entry) {
+                  //console.log(entry);
+                    // Check if the entry belongs to the current user and is an active reservation
+                    if (entry.name === user.username && entry.status === 'active') {
+                      console.log("success");
+                        // Create a new row in the table
+                        var newRow = '<tr>' +
+                            //'<td>' + index + '</td>' +
+                            '<td>' + entry.date + '</td>' +
+                            '<td>' + entry.status + '</td>' +
+                            '<td>' + entry.pricing + '</td>' +
+                            '<td>' + entry.phone + '</td>' +
+                            '<td>' + entry.name + '</td>' +
+                            '<td>' + entry.parking_lot + '</td>' +
+                            '<td>' + entry.address + '</td>' +
+                            '<td>' + entry.garage + '</td>' +
+                            '<td>' + entry.slot_number + '</td>' +
+                            '</tr>';
+    
+                        // Append the new row to the table body
+                        $('#datatable1 tbody').append(newRow);
+                    }
+                    
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+    } else {
+        console.error('User data not found in local storage.');
+    }
+    });
+</script>
+
+
+<script>
+  $(document).ready(function(){
+
+    $('#logout').click(function() {
+    // Clear localStorage
+    localStorage.clear();
+    // Redirect the user to the logout page
+    window.location.href = 'index.html#slider'; 
+
+    });
+  });
+</script>
+
+
+<script>
+
+  $(document).ready(function() {
+      $('#datatable1').DataTable();
+      $('#datatable2').DataTable();
+
+  });
+</script>
+
+    

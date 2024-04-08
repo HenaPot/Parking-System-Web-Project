@@ -1,0 +1,264 @@
+      <!-- header section strats -->
+        <header class="header_section special_container">
+          <div class="container">
+              <nav class="navbar navbar-expand-lg custom_nav-container">
+                  <a class="navbar-brand" href="index.html">
+                    <span> Parking System</span>
+                  </a>
+      
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+      
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                              <a class="nav-link" href="index.html">Reserve</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#about">About</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#pricing">Pricing</a>
+                          </li>
+                          <li class="nav-item active">
+                              <a class="nav-link" href="#signup">Sign Up/Login</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#why">Why Us</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#testimonial">Our Clients</a>
+                          </li>
+                      </ul>
+                      <form class="d-flex">
+                          <button class="btn btn-outline-success nav_search-btn" type="submit">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                          </button>
+                      </form>
+                  </div>
+              </nav>
+          </div>
+      </header>
+        <!-- end header section -->
+
+      <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 center-content">
+                    
+                        <h1 style="text-align: center;">SIGN UP</h1>
+                    
+                    <form action="index.html#dashboard" method="post" id="signup-form">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input name="username" type="text" class="form-control" id="username" placeholder="Enter username" autocomplete="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input name="email" type="email" class="form-control" id="email" placeholder="Enter email" autocomplete="email" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="mobile">Phone number</label>
+                          <input name="mobile" type="mobile" class="form-control" id="mobile" placeholder="387 61 234 567" required>
+                      </div class = "btn-box">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input name="password" type="password" class="form-control" id="password" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm_password">Confirm Password</label>
+                            <input name="confirm_password" type="password" class="form-control" id="confirm_password" placeholder="Confirm Password" required>
+                        </div>
+                    <button type="submit" class="signup_button">SIGN UP</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-6">
+                    <br> <hr> <br>
+                    <div class="heading_container heading_center">
+                        <h1 style="text-align: center;">LOG IN</h1>
+                    </div>
+                    <form action="index.html#dashboard" method="post" id="login-form">
+                        <div class="form-group">
+                            <label for="login_email">Email</label>
+                            <input name="login_email" type="text" class="form-control" id="login_email" placeholder="Enter email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login_password">Password</label>
+                            <input name="login_password" type="password" class="form-control" id="login_password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="signup_button">LOG IN</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end about section -->
+
+
+ <script>
+     $(document).ready(function() {
+        // Initialize jQuery Validation plugin
+        $('#login-form').validate({
+            rules: {
+                login_email: {
+                    required: true,
+                    email: true
+                },
+                login_password: {
+                    required: true,
+                    minlength: 8
+                }
+            },
+            messages: {
+                login_email: {
+                    required: 'Please enter your email',
+                    email: 'Please enter a valid email address'
+                },
+                login_password: {
+                    required: 'Please enter your password',
+                    minlength: 'Password must be at least 8 characters long'
+                }
+            },
+            submitHandler: function(form) {
+                var enteredEmail = $('#login_email').val().trim();
+                var enteredPassword = $('#login_password').val().trim();
+                //console.log(enteredEmail);
+                //console.log(enteredPassword);
+    
+                // Use jQuery AJAX to fetch JSON data from the file
+                $.ajax({
+                    url: 'json/profiles.json', 
+                    dataType: 'json',
+                    success: function(data) {
+                        //console.log("success");
+                        var found = false; // Flag to track if a matching user is found
+                        // Iterate over each item in the JSON array
+                        $.each(data, function(index, item) {
+                            // Check if the current item's email and password match the entered credentials
+                            if (item.email === enteredEmail && item.password === enteredPassword) {
+                                // Store user data in local storage
+                                localStorage.setItem('user', JSON.stringify(item));
+                                // Redirect to the profile page
+                                window.location.href = 'index.html#profile';
+                                found = true; // Set the flag to true since a matching user is found
+                                return false; // Exit the loop since we found a matching user
+                            }
+                        });
+    
+                        // If no matching user is found, display an error message
+                        if (!found) {
+                            console.log("no such user in json file.");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error loading JSON data:', error);
+                    }
+                });
+    
+                // Reset the form 
+                form.reset();
+            }
+        });
+
+        // Initialize jQuery Validation plugin
+        $('#signup-form').validate({
+            rules: {
+                username: {
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone_number: {
+                    required: true,
+                    minlength: 9
+                },
+                password: {
+                    required: true,
+                    minlength: 8
+                },
+                confirm_password: {
+                    required: true,
+                    equalTo: '#password'
+                }
+            },
+            messages: {
+                username: 'Please enter your username',
+                email: {
+                    required: 'Please enter your email',
+                    email: 'Please enter a valid email address'
+                },
+                password: {
+                    required: 'Please enter your password',
+                    minlength: 'Password must be at least 8 characters long'
+                },
+                confirm_password: {
+                    required: 'Please enter your password',
+                    equalTo: 'Passwords do not match'
+                }
+            },
+            submitHandler: function(form) {
+                var formDataArray = $(form).serializeArray();
+
+                // Convert the array of objects into a JSON object
+                var formDataJson = {};
+                formDataArray.forEach(function(item) {
+                    formDataJson[item.name] = item.value;
+                });
+                var formEmail = $('#email').val().trim();
+                
+                // Use jQuery AJAX to fetch JSON data from the file
+                $.ajax({
+                    url: 'json/profiles.json', 
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        var userExists = false;
+                        $.each(data, function(index, item) {
+                            // Check if the current item's email exists in json
+                            if (item.email === formEmail) {
+                                console.log("success2");
+                                userExists = true;
+                                return false; //exiting loop
+                            }
+                        });
+    
+                        // If no matching user is found, display an error message
+                        if (userExists) {
+                            alert("User with the same email already exists!");
+                        } else {
+                            // proceed with adding to json file
+                            $.ajax({
+                                url: 'json/profiles.json',
+                                type: 'POST',
+                                data: formDataJson,
+                                success: function() {
+                                    //console.log("success3");
+                                    window.location.href= 'index.html#profile'
+                                    localStorage.setItem('user', JSON.stringify(formDataJson));
+                                },
+                                error: function(xhr, status, error) {
+                                    console.error('Error posting form data:', error);
+                                    alert('An error occurred. Please try again later.');
+                                }
+
+                            });
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error loading JSON data:', error);
+                    }
+                });
+    
+                // Reset the form 
+                form.reset();
+            }
+        });
+    });
+ </script> 

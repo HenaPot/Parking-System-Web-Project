@@ -1,0 +1,133 @@
+
+       <!-- header section strats -->
+        <header class="header_section special_container">
+          <div class="container">
+              <nav class="navbar navbar-expand-lg custom_nav-container">
+                  <a class="navbar-brand" href="index.html">
+                    <span> Parking System</span>
+                  </a>
+      
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+      
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                              <a class="nav-link" href="index.html">Home</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#about">About</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#pricing">Pricing</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#dashboard">Dashboard</a>
+                          </li>
+                          <li class="nav-item active">
+                              <a id="logout-button" class="nav-link" href="index.html">Logout</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#why">Why Us</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#testimonial">Our Clients</a>
+                          </li>
+                      </ul>
+                      <form class="d-flex">
+                          <button class="btn btn-outline-success nav_search-btn" type="submit">
+                              <i class="fa fa-search" aria-hidden="true"></i>
+                          </button>
+                      </form>
+                  </div>
+              </nav>
+          </div>
+      </header>
+        <!-- end header section -->
+
+      <div class="dashboard-container hero_area" style="margin: 0; min-height: 70vh;">
+          <section class="">
+                  <div class="container">
+                    <div class="row layout_padding-bottom pt-4">
+                      <div class="col-lg-3">
+                        <h2 >Your Information</h2>
+                      </div>
+                    </div>
+
+                    <div class="row" id="user-info">
+                      <!-- 
+                      <div class="col-md-4">
+                        <ul>
+                          <li style="font-size: 1.2em;"><strong>Your Username:</strong> Hena Potogija</li>
+                          <li style="font-size: 1.2em;"><strong>Your Password:</strong> jdhbg7tr8372ds!$A</li>
+                        </ul>
+                      </div>
+                      <div class="col-md-4">
+                        <ul>
+                      
+                          <li style="font-size: 1.2em;"><strong>Your Email:</strong> test@gmail.com</li>
+                          <li style="font-size: 1.2em;"><strong>Phone Number:</strong> 387 01 2334 567</li>
+                        </ul>
+                      </div>
+                      <div class="col-md-4">
+                        <ul>
+                          <li style="font-size: 1.2em;"><strong>Lifetime Reservations:</strong> 1</li>
+                          <li style="font-size: 1.2em;"><strong>Active Reservations:</strong> 1</li>
+                        </ul>
+                      </div> -->
+                  </div>
+                </div>           
+          </section>
+      </div>
+
+    <!-- Profile END-->
+
+
+    <script>
+      $(document).ready(function() {
+    // Retrieve user information from local storage
+    var userInfo = JSON.parse(localStorage.getItem('user'));
+
+    // Check if user information exists in local storage
+    if (userInfo) {
+        // Create HTML structure for displaying user information
+        var userInfoHtml = `
+            <div class="col-md-4">
+                <ul>
+                    <li style="font-size: 1.2em;"><strong>Your Username:</strong> ${userInfo.username}</li>
+                    <li style="font-size: 1.2em;"><strong>Your Password:</strong> ${userInfo.password}</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <li style="font-size: 1.2em;"><strong>Your Email:</strong> ${userInfo.email}</li>
+                    <li style="font-size: 1.2em;"><strong>Phone Number:</strong> ${userInfo.mobile}</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <li style="font-size: 1.2em;"><strong>Lifetime Reservations:</strong> ${userInfo.lifetime_reservations}</li>
+                    <li style="font-size: 1.2em;"><strong>Active Reservations:</strong> ${userInfo.active_reservations}</li>
+                </ul>
+            </div>
+        `;
+        
+        // Append user information HTML to the container
+        $('#user-info').html(userInfoHtml);
+
+        $('#logout-button').click(function() {
+        // Clear localStorage
+        localStorage.clear();
+        // Redirect the user to the logout page
+        window.location.href = 'index.html#slider'; 
+}); 
+
+    } else {
+        // Display a message if user information is not found in local storage
+        $('#user-info').html('<p>No user information found in local storage.</p>');
+    }
+});
+
+    </script>
