@@ -1,45 +1,90 @@
+<script>
+    
+    // Function to update navigation bar based on user login status
+    function updateNavigationBar() {
+    var user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      console.log("here");
+      // Hide the "Sign Up/Login" link if user is logged in
+      $('.nav-link[href="#signup"]').hide();
+      // Display additional navigation items for logged-in users
+      $('#dashboard-link, #profile-link, #logout-link').show();
+    } else {
+      // Show the "Sign Up/Login" link if user is not logged in
+      $('.nav-link[href="#signup"]').show();
+      // Hide additional navigation items for non-logged-in users
+      $('#dashboard-link, #profile-link, #logout-link').hide();
+    }
+  }
+  
+    // Call the function when the document is ready
+    $(document).ready(function() {
+      updateNavigationBar(); // Call the function initially
+    });
+  
+    // Logout function
+    $(document).on('click', '#logout', function(e) {
+      e.preventDefault();
+      // Clear localStorage
+      localStorage.clear();
+      // Redirect the user to the logout page
+      window.location.href = 'index.html';
+    });
+  </script> 
+  
+  <div class="hero_area">
       <!-- header section strats -->
-        <header class="header_section special_container">
-          <div class="container">
-              <nav class="navbar navbar-expand-lg custom_nav-container">
-                  <a class="navbar-brand" href="index.html">
-                    <span> Parking System</span>
-                  </a>
+      <header class="header_section special_container">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index.html">
+              <span> Parking System</span>
+            </a>
       
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
       
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                          <li class="nav-item">
-                              <a class="nav-link" href="index.html">Reserve</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#about">About</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#pricing">Pricing</a>
-                          </li>
-                          <li class="nav-item active">
-                              <a class="nav-link" href="#signup">Sign Up/Login</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#why">Why Us</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#testimonial">Our Clients</a>
-                          </li>
-                      </ul>
-                      <form class="d-flex">
-                          <button class="btn btn-outline-success nav_search-btn" type="submit">
-                              <i class="fa fa-search" aria-hidden="true"></i>
-                          </button>
-                      </form>
-                  </div>
-              </nav>
-          </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" id="home-link" href="index.html">Reserve</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="about-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="pricing-link" href="#pricing">Pricing</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" id="signup-link" href="#signup">Sign Up/Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="why-link" href="#why">Why Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="testimonial-link" href="#testimonial">Our Clients</a>
+                </li>
+                <!-- Dynamic menu items for logged-in users -->
+                <li class="nav-item" id="dashboard-link" style="display: none;">
+                  <a class="nav-link" href="#dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item" id="profile-link" style="display: none;">
+                  <a class="nav-link" href="#profile">Profile</a>
+                </li>
+                <li class="nav-item" id="logout-link" style="display: none;">
+                  <a class="nav-link" href="#" id="logout">Logout</a>
+                </li>
+              </ul>
+              <form class="d-flex">
+                <button class="btn btn-outline-success nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
+          </nav>
+        </div>
       </header>
         <!-- end header section -->
 

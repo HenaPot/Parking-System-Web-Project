@@ -5,10 +5,10 @@
         "pricing": "Premium",
         "phone": "061 234 567",
         "name": "Hena Potogija",
-        "parking-lot": "City Center",
+        "parking_lot": "City Center",
         "address": "Francuske revolucije bb",
         "garage": "A",
-        "slot-number": "A45"
+        "slot_number": "A45"
     },
 
     {
@@ -28,10 +28,10 @@
         "pricing": "Basic",
         "phone": "060 354 897",
         "name": "Hena Potogija",
-        "parking-lot": "Highway Parking",
+        "parking_lot": "Highway Parking",
         "address": "Francuske revolucije bb",
         "garage": "C",
-        "slot-number": "C45"
+        "slot_number": "C45"
     },
 
     {
@@ -51,10 +51,10 @@
         "pricing": "Premium",
         "phone": "071 254 997",
         "name": "User3",
-        "parking-lot": "Suburbs",
+        "parking_lot": "Suburbs",
         "address": "Francuske revolucije bb",
         "garage": "B",
-        "slot-number": "B33"
+        "slot_number": "B33"
     },
     {
         "date": "22.03.2024",
@@ -62,9 +62,31 @@
         "pricing": "Premium",
         "phone": "071 254 997",
         "name": "User3",
-        "parking-lot": "SuCity Centerburbs",
+        "parking_lot": "Suburbs",
         "address": "Francuske revolucije bb",
         "garage": "B",
-        "slot-number": "B33"
+        "slot_number": "B33"
+    },
+    {
+        "date": "04.04.2024",
+        "status": "active",
+        "pricing": "Standard",
+        "phone": "061 254 997",
+        "name": "User3",
+        "parking_lot": "Suburbs",
+        "address": "Francuske revolucije bb",
+        "garage": "A",
+        "slot_number": "A128"
+    },
+    {
+        "date": "02.04.2024",
+        "status": "inactive",
+        "pricing": "Standard",
+        "phone": "063 254 997",
+        "name": "User3",
+        "parking_lot": "City Center",
+        "address": "Francuske revolucije bb",
+        "garage": "A",
+        "slot_number": "A4"
     }
 ]
