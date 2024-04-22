@@ -3,12 +3,12 @@
   function updateNavigationBar() {
     var user = JSON.parse(localStorage.getItem('user'));
     if (user) {
-      console.log("here");
       // Hide the "Sign Up/Login" link if user is logged in
       $('.nav-link[href="#signup"]').hide();
       // Display additional navigation items for logged-in users
       $('#dashboard-link, #profile-link, #logout-link').show();
     } else {
+      console.log('tu si 2');
       // Show the "Sign Up/Login" link if user is not logged in
       $('.nav-link[href="#signup"]').show();
       // Hide additional navigation items for non-logged-in users
@@ -19,6 +19,8 @@
   // Call the function when the document is ready
   $(document).ready(function() {
     updateNavigationBar(); // Call the function initially
+    $('#reserve').attr('href', 'index.html#dashboard');
+
   });
 
   // Logout function
@@ -149,7 +151,7 @@
               </div> 
             </div>
             <div class="btn-box">
-              <a href="#signup">
+              <a id="reserve" href="#signup" >
                 <button type="submit">
                   <span>
                     Reserve Your Spot
@@ -216,14 +218,20 @@ $(document).ready(function () {
           });
 
            $.ajax({
-               url: 'json/reservations.json',
+               url: 'backend/add_reservation.php',
                type: 'POST',
-              data: formDataJson,
+               data: formDataJson,
                success: function(response) {
                    // Handle success response
-                   console.log(formDataJson);
+                   console.log(response);
                    localStorage.setItem('reservation', JSON.stringify(formDataJson));
-                   window.location.href = 'index.html#signup';
+                   var user = JSON.parse(localStorage.getItem('user'));
+                   //console.log(user)
+                   if (user) {
+                    window.location.href = 'index.html#dashboard';
+                   } else {
+                    window.location.href = 'index.html#signup'
+                   }
 
                },
                error: function(xhr, status, error) {

@@ -203,7 +203,7 @@
     function initializeDataTables() {
       $('#datatable1').DataTable();
       $('#datatable2').DataTable();
-      console.log("datatable initialized");
+      //console.log("datatable initialized");
   }
 
     $(document).ready(function() {
@@ -239,11 +239,11 @@
                             '<td>' + entry.slot_number + '</td>' +
                             '</tr>';
     
-                            console.log("appended");
+                            //console.log("appended");
 
                         // Append the new row to the table body
                         $('#datatable1 tbody').append(newRow);
-                        console.log("tbody appended");
+                        //console.log("tbody appended");
 
                     } else if (entry.name === user.username && entry.status === 'inactive') {
                       inactiveCounter++;
