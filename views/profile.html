@@ -1,49 +1,85 @@
+<script>
+  // Function to update navigation bar based on user login status
+  function updateNavigationBar() {
+    var user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      console.log("here");
+      // Hide the "Sign Up/Login" link if user is logged in
+      $('.nav-link[href="#signup"]').hide();
+      // Display additional navigation items for logged-in users
+      $('#dashboard-link, #profile-link, #logout-link').show();
+    } else {
+      // Show the "Sign Up/Login" link if user is not logged in
+      $('.nav-link[href="#signup"]').show();
+      // Hide additional navigation items for non-logged-in users
+      $('#dashboard-link, #profile-link, #logout-link').hide();
+    }
+  }
+
+  // Call the function when the document is ready
+  $(document).ready(function() {
+    updateNavigationBar(); // Call the function initially
+  });
+
+  // Logout function
+  $(document).on('click', '#logout', function(e) {
+    e.preventDefault();
+    // Clear localStorage
+    localStorage.clear();
+    // Redirect the user to the logout page
+    window.location.href = 'index.html';
+  });
+</script> 
 
        <!-- header section strats -->
-        <header class="header_section special_container">
-          <div class="container">
-              <nav class="navbar navbar-expand-lg custom_nav-container">
-                  <a class="navbar-brand" href="index.html">
-                    <span> Parking System</span>
-                  </a>
+       <header class="header_section special_container">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index.html">
+              <span> Parking System</span>
+            </a>
       
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
       
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                          <li class="nav-item">
-                              <a class="nav-link" href="index.html">Home</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#about">About</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#pricing">Pricing</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#dashboard">Dashboard</a>
-                          </li>
-                          <li class="nav-item active">
-                              <a id="logout-button" class="nav-link" href="index.html">Logout</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#why">Why Us</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#testimonial">Our Clients</a>
-                          </li>
-                      </ul>
-                      <form class="d-flex">
-                          <button class="btn btn-outline-success nav_search-btn" type="submit">
-                              <i class="fa fa-search" aria-hidden="true"></i>
-                          </button>
-                      </form>
-                  </div>
-              </nav>
-          </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" id="home-link" href="index.html">Reserve</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="about-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="pricing-link" href="#pricing">Pricing</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="why-link" href="#why">Why Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="testimonial-link" href="#testimonial">Our Clients</a>
+                </li>
+                <!-- Dynamic menu items for logged-in users -->
+                <li class="nav-item" id="dashboard-link" style="display: none;">
+                  <a class="nav-link" href="#dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item active" id="profile-link" style="display: none;">
+                  <a class="nav-link" href="#profile">Profile</a>
+                </li>
+                <li class="nav-item" id="logout-link" style="display: none;">
+                  <a class="nav-link" href="#" id="logout">Logout</a>
+                </li>
+              </ul>
+              <form class="d-flex">
+                <button class="btn btn-outline-success nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
+          </nav>
+        </div>
       </header>
         <!-- end header section -->
 
@@ -77,6 +113,63 @@
                           <li style="font-size: 1.2em;"><strong>Active Reservations:</strong> 1</li>
                         </ul>
                       </div> -->
+                  </div>
+                  <div class="row layout_padding justify-content-center">
+                    <!--
+                    <div class="col-auto">
+                      <button class="btn btn-dark">Edit Profile</button>
+                    </div>-->
+                    <!-- Button trigger modal -->
+                    <div class="col-auto">
+                      <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+                        Edit Profile
+                      </button>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form id="editProfileForm">
+                              <div class="form-group">
+                                <label for="editUsername">Username</label>
+                                <input name="editUsername" type="text" class="form-control" id="editUsername" placeholder="Enter username" autocomplete="username" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="editEmail">Email address</label>
+                                <input name="editEmail" type="email" class="form-control" id="editEmail" placeholder="Enter email" autocomplete="email" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="editMobile">Phone number</label>
+                                <input name="editMobile" type="tel" class="form-control" id="editMobile" placeholder="Enter phone number" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="editPassword">New Password</label>
+                                <input name="editPassword" type="password" class="form-control" id="editPassword" placeholder="Enter new password" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="confirmEditPassword">Confirm New Password</label>
+                                <input name="confirmEditPassword" type="password" class="form-control" id="confirmEditPassword" placeholder="Confirm new password" required>
+                              </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="saveChangesBtn">Save Changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-auto">
+                      <button class="btn btn-secondary">Delete Profile</button>
+                    </div>
+                    
                   </div>
                 </div>           
           </section>
@@ -129,5 +222,4 @@
         $('#user-info').html('<p>No user information found in local storage.</p>');
     }
 });
-
-    </script>
+</script>

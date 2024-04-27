@@ -1,5 +1,37 @@
 
-    
+<script>
+  // Function to update navigation bar based on user login status
+  function updateNavigationBar() {
+    var user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      // Hide the "Sign Up/Login" link if user is logged in
+      //$('#signup-link').hide();
+      // Display additional navigation items for logged-in users
+      $('#dashboard-link, #profile-link, #logout-link').show();
+    } else {
+      // Show the "Sign Up/Login" link if user is not logged in
+      //$('#signup-link').show();
+      // Hide additional navigation items for non-logged-in users
+      $('#dashboard-link, #profile-link, #logout-link').hide();
+    }
+  }
+
+  // Call the function when the document is ready
+  $(document).ready(function() {
+    updateNavigationBar(); // Call the function initially
+  });
+
+  // Logout function
+  $(document).on('click', '#logout', function(e) {
+    e.preventDefault();
+    // Clear localStorage
+    localStorage.clear();
+    // Redirect the user to the logout page
+    window.location.href = 'index.html';
+  });
+</script>
+
+</script>
     
     <div class="hero_area">
         <div class="bg-box">
@@ -8,49 +40,53 @@
         <!-- header section strats -->
         <header class="header_section special_container">
           <div class="container">
-              <nav class="navbar navbar-expand-lg custom_nav-container">
-                  <a class="navbar-brand" href="index.html">
-                    <span> Parking System</span>
-                  </a>
-      
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
+            <nav class="navbar navbar-expand-lg custom_nav-container">
+              <a class="navbar-brand" href="index.html">
+                <span> Parking System</span>
+              </a>
+        
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+        
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" id="home-link" href="index.html">Reserve</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="about-link" href="#about">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="pricing-link" href="#pricing">Pricing</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="why-link" href="#why">Why Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="testimonial-link" href="#testimonial">Our Clients</a>
+                  </li>
+                  <!-- Dynamic menu items for logged-in users -->
+                  <li class="nav-item active" id="dashboard-link" style="display: none;">
+                    <a class="nav-link" href="#dashboard">Dashboard</a>
+                  </li>
+                  <li class="nav-item" id="profile-link" style="display: none;">
+                    <a class="nav-link" href="#profile">Profile</a>
+                  </li>
+                  <li class="nav-item" id="logout-link" style="display: none;">
+                    <a class="nav-link" href="#" id="logout">Logout</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <button class="btn btn-outline-success nav_search-btn" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
                   </button>
-      
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                          <li class="nav-item">
-                              <a class="nav-link" href="index.html">Home</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#about">About</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#pricing">Pricing</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#profile">Profile</a>
-                          </li>
-                          <li class="nav-item active">
-                            <a id="logout" class="nav-link" href="index.html">Logout</a>
-                        </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#why">Why Us</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#testimonial">Our Clients</a>
-                          </li>
-                      </ul>
-                      <form class="d-flex">
-                          <button class="btn btn-outline-success nav_search-btn" type="submit">
-                              <i class="fa fa-search" aria-hidden="true"></i>
-                          </button>
-                      </form>
-                  </div>
-              </nav>
+                </form>
+              </div>
+            </nav>
           </div>
-      </header>
+        </header>
         <!-- end header section -->
 
     <!-- HERE IS THE DASHBOARD-->
@@ -66,7 +102,7 @@
                 <table class="table table-bordered table-info" id="datatable1">
                   <thead>
                     <tr>
-                      <!--<th scope="col">#</th> -->
+                      <th scope="col">#</th> 
                       <th scope="col">Date</th>
                       <th scope="col">Status</th>
                       <th scope="col">Pricing</th>
@@ -117,6 +153,7 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <!-- 
                       <tr>
                         <th scope="row">1</th>
                         <td>21.03.2024</td>
@@ -152,7 +189,7 @@
                         <td>Ulica Trg Cvjetova</td>
                         <td>C</td>
                         <td>C45</td>
-                      </tr>
+                      </tr> -->
                     </tbody>
                   </table>           
               </div>
@@ -163,9 +200,17 @@
     <!-- DASHBOARD END-->
 
 <script>
+    function initializeDataTables() {
+      $('#datatable1').DataTable();
+      $('#datatable2').DataTable();
+      //console.log("datatable initialized");
+  }
+
     $(document).ready(function() {
     // Retrieve user data from local storage
     var user = JSON.parse(localStorage.getItem('user'));
+    var activeCounter = 0;
+    var inactiveCounter = 0;
     
     if (user) {
         // Fetch JSON data using AJAX
@@ -178,10 +223,11 @@
                   //console.log(entry);
                     // Check if the entry belongs to the current user and is an active reservation
                     if (entry.name === user.username && entry.status === 'active') {
-                      console.log("success");
+                      //console.log("success");
                         // Create a new row in the table
+                        activeCounter++;
                         var newRow = '<tr>' +
-                            //'<td>' + index + '</td>' +
+                            '<td>' + activeCounter + '</td>' +
                             '<td>' + entry.date + '</td>' +
                             '<td>' + entry.status + '</td>' +
                             '<td>' + entry.pricing + '</td>' +
@@ -193,11 +239,32 @@
                             '<td>' + entry.slot_number + '</td>' +
                             '</tr>';
     
+                            //console.log("appended");
+
                         // Append the new row to the table body
                         $('#datatable1 tbody').append(newRow);
+                        //console.log("tbody appended");
+
+                    } else if (entry.name === user.username && entry.status === 'inactive') {
+                      inactiveCounter++;
+                      var newRow = '<tr>' +
+                            '<td>' + inactiveCounter + '</td>' +
+                            '<td>' + entry.date + '</td>' +
+                            '<td>' + entry.status + '</td>' +
+                            '<td>' + entry.pricing + '</td>' +
+                            '<td>' + entry.phone + '</td>' +
+                            '<td>' + entry.name + '</td>' +
+                            '<td>' + entry.parking_lot + '</td>' +
+                            '<td>' + entry.address + '</td>' +
+                            '<td>' + entry.garage + '</td>' +
+                            '<td>' + entry.slot_number + '</td>' +
+                            '</tr>';
+
+                            $('#datatable2 tbody').append(newRow);
                     }
                     
                 });
+                initializeDataTables();
             },
             error: function(xhr, status, error) {
                 console.error('Error fetching JSON data:', error);
@@ -210,27 +277,5 @@
 </script>
 
 
-<script>
-  $(document).ready(function(){
-
-    $('#logout').click(function() {
-    // Clear localStorage
-    localStorage.clear();
-    // Redirect the user to the logout page
-    window.location.href = 'index.html#slider'; 
-
-    });
-  });
-</script>
-
-
-<script>
-
-  $(document).ready(function() {
-      $('#datatable1').DataTable();
-      $('#datatable2').DataTable();
-
-  });
-</script>
 
     
