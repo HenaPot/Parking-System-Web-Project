@@ -4,6 +4,7 @@ require_once __DIR__ . '/BaseDao.class.php';
 
 class ReservationDao extends BaseDao
 {
+    
     public function __construct()
     {
         parent::__construct("reservation");
@@ -11,7 +12,7 @@ class ReservationDao extends BaseDao
 
     public function createReservation($reservation)
     {
-        return $this->add($reservation);
+        return $this->insert("reservation",$reservation);
     }
 
     public function updateReservation($id, $reservation)

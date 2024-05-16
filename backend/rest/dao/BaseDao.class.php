@@ -58,8 +58,9 @@ class BaseDao
   }
 
   public function insert($table, $entity)
+
   {
-    $query = "INSERT INTO {$table} (";
+   $query = "INSERT INTO {$table} (";
     foreach ($entity as $column => $value) {
       $query .= $column . ", ";
     }
