@@ -189,7 +189,7 @@
         var userInfoHtml = `
             <div class="col-md-4">
                 <ul>
-                    <li style="font-size: 1.2em;"><strong>Your Username:</strong> ${userInfo.username}</li>
+                    <li style="font-size: 1.2em;"><strong>Your Username:</strong> ${userInfo.name}</li>
                     <li style="font-size: 1.2em;"><strong>Your Password:</strong> ${userInfo.password}</li>
                 </ul>
             </div>
@@ -222,4 +222,10 @@
         $('#user-info').html('<p>No user information found in local storage.</p>');
     }
 });
+</script>
+
+<script>
+    $(document).ready(function() {
+
+    });
 </script>

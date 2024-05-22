@@ -123,7 +123,7 @@
               </div> 
               <div class="col-md-3 col-sm-3 col-12">
                 <div class="form-group">
-                  <label for="name">Name Surname</label>
+                  <label for="name">Name </label>
                   <div class="input-group">
                     <input id="name" name="name" type="text" class="form-control" placeholder="Hena Potogija" autocomplete="name"/>
                   </div>
@@ -218,7 +218,7 @@ $(document).ready(function () {
           });
 
            $.ajax({
-               url: 'backend/add_reservation.php',
+               url: 'backend/reservations/add',
                type: 'POST',
                data: formDataJson,
                success: function(response) {

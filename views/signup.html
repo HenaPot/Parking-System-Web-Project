@@ -97,8 +97,8 @@
                     
                     <form action="index.html#dashboard" method="post" id="signup-form">
                         <div class="form-group">
-                            <label for="username">Username</label>
-                            <input name="username" type="text" class="form-control" id="username" placeholder="Enter username" autocomplete="username" required>
+                            <label for="name">Username</label>
+                            <input name="name" type="text" class="form-control" id="username" placeholder="Enter username" autocomplete="username" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email address</label>
@@ -114,7 +114,7 @@
                         </div>
                         <div class="form-group">
                             <label for="confirm_password">Confirm Password</label>
-                            <input name="confirm_password" type="password" class="form-control" id="confirm_password" placeholder="Confirm Password" required>
+                            <input  type="password" class="form-control" id="confirm_password" placeholder="Confirm Password" required>
                         </div>
                     <button type="submit" class="signup_button">SIGN UP</button>
                     </form>
@@ -128,8 +128,8 @@
                     </div>
                     <form action="index.html#dashboard" method="post" id="login-form">
                         <div class="form-group">
-                            <label for="login_email">Email</label>
-                            <input name="login_email" type="text" class="form-control" id="login_email" placeholder="Enter email" required>
+                            <label for="login_name">Name</label>
+                            <input name="name" type="text" class="form-control" id="login_name" placeholder="Enter name" required>
                         </div>
                         <div class="form-group">
                             <label for="login_password">Password</label>
@@ -150,9 +150,9 @@
         // Initialize jQuery Validation plugin
         $('#login-form').validate({
             rules: {
-                login_email: {
+                name: {
                     required: true,
-                    email: true
+                    //email: true
                 },
                 login_password: {
                     required: true,
@@ -160,9 +160,9 @@
                 }
             },
             messages: {
-                login_email: {
-                    required: 'Please enter your email',
-                    email: 'Please enter a valid email address'
+                name: {
+                    required: 'Please enter your name',
+                    //email: 'Please enter a valid email address'
                 },
                 login_password: {
                     required: 'Please enter your password',
@@ -170,22 +170,23 @@
                 }
             },
             submitHandler: function(form) {
-                var enteredEmail = $('#login_email').val().trim();
+                var enteredName = $('#login_name').val().trim();
                 var enteredPassword = $('#login_password').val().trim();
                 //console.log(enteredEmail);
                 //console.log(enteredPassword);
     
                 // Use jQuery AJAX to fetch JSON data from the file
                 $.ajax({
-                    url: 'json/profiles.json', 
-                    dataType: 'json',
+                    url: 'backend/profiles/profile', 
+                    //dataType: 'json',
                     success: function(data) {
+                        console.log(data);
                         //console.log("success");
                         var found = false; // Flag to track if a matching user is found
                         // Iterate over each item in the JSON array
                         $.each(data, function(index, item) {
                             // Check if the current item's email and password match the entered credentials
-                            if (item.email === enteredEmail && item.password === enteredPassword) {
+                            if (item.name == enteredName && item.password == enteredPassword) {
                                 // Store user data in local storage
                                 localStorage.setItem('user', JSON.stringify(item));
                                 // Redirect to the profile page
@@ -197,7 +198,8 @@
     
                         // If no matching user is found, display an error message
                         if (!found) {
-                            console.log("no such user in json file.");
+                            console.log("no such user in the database file.");
+                            alert("No such user in the database file.");
                         }
                     },
                     error: function(xhr, status, error) {
@@ -260,9 +262,9 @@
                 
                 // Use jQuery AJAX to fetch JSON data from the file
                 $.ajax({
-                    url: 'json/profiles.json', 
+                    url: 'backend/profiles/profile', 
                     type: 'GET',
-                    dataType: 'json',
+                    //dataType: 'json',
                     success: function(data) {
                         var userExists = false;
                         $.each(data, function(index, item) {
@@ -280,7 +282,7 @@
                         } else {
                             // proceed with adding to json file
                             $.ajax({
-                                url: 'json/profiles.json',
+                                url: 'backend/profiles/add',
                                 type: 'POST',
                                 data: formDataJson,
                                 success: function() {
