@@ -8,7 +8,7 @@
       // Display additional navigation items for logged-in users
       $('#dashboard-link, #profile-link, #logout-link').show();
     } else {
-      console.log('tu si 2');
+      //console.log('tu si 2');
       // Show the "Sign Up/Login" link if user is not logged in
       $('.nav-link[href="#signup"]').show();
       // Hide additional navigation items for non-logged-in users
@@ -111,9 +111,9 @@
             <div class="form-row justify-content-center">
               <div class="col-md-3 col-sm-3 col-12">
                 <div class="form-group">
-                  <label for="select-parking">Select Parking</label>
+                  <label for="select_parking">Select Parking</label>
                   <div class="input-group">
-                    <select id="select-parking" name="select-parking" class="form-control select-parking form-select" style="width: 100%;">
+                    <select id="select_parking" name="select_parking" class="form-control select-parking form-select" style="width: 100%;">
                        <option class="input-group" value="Highway Parking" data-display="Highway Parking">Highway Parking</option>
                       <option  class="input-group" value="City Center">City Center</option>
                       <option  class="input-group" value="Suburbs">Suburbs</option> 
@@ -139,9 +139,9 @@
               </div>
               <div class="col-md-3 col-sm-3 col-12">
                 <div class="form-group">
-                  <label for="select-pricing">Select Pricing</label>
+                  <label for="select_pricing">Select Pricing</label>
                   <div class="input-group">
-                    <select id="select-pricing" name="select-pricing" class="form-control select-parking form-select" style="width: 100%;" >
+                    <select id="select_pricing" name="select_pricing" class="form-control select-parking form-select" style="width: 100%;" >
                       <option class="input-group" value="Premium" data-display="Highway Parking">Premium</option>
                       <option  class="input-group" value="Premium">Standard</option>
                       <option  class="input-group" value="Premium">Basic</option>
@@ -178,7 +178,7 @@ $(document).ready(function () {
   $(document).ready(function() {
     $("#main-form").validate({
         rules: {
-             "select-parking": {
+             "select_parking": {
                  required: true
            },
            name: {
@@ -187,12 +187,12 @@ $(document).ready(function () {
            phone_number: {
                  required: true
            },
-           "select-pricing": {
+           "select_pricing": {
                  required: true
            }
         }, 
         messages: {
-          "select-parking": {
+          "select_parking": {
                 required: 'Please select a parking option'
           },
           name: {
@@ -201,7 +201,7 @@ $(document).ready(function () {
           phone_number: {
                 required: 'Please enter your phone number'
           },
-          "select-pricing": {
+          "select_pricing": {
                 required: 'Please select a pricing option'
           }
         },
